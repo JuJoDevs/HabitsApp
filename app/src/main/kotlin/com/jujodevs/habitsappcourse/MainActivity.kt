@@ -8,6 +8,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.jujodevs.habitsappcourse.navigation.NavigationHost
+import com.jujodevs.habitsappcourse.navigation.NavigationRoute
 import com.jujodevs.habitsappcourse.ui.theme.HabitsAppCourseTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +24,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Text(text = "Hi")
+                    val navController = rememberNavController()
+                    NavigationHost(
+                        navHostController = navController,
+                        startDestination = NavigationRoute.Onboarding
+                    )
                 }
             }
         }
