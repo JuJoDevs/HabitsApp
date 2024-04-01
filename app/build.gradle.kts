@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.dagger.hilt)
-    //alias(libs.plugins.google.services)
+    alias(libs.plugins.google.services)
 }
 
 android {

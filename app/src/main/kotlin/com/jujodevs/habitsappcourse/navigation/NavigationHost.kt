@@ -1,5 +1,6 @@
 package com.jujodevs.habitsappcourse.navigation
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -24,7 +25,18 @@ fun NavigationHost(
                 })
         }
         composable(route = NavigationRoute.Login.route) {
-            LoginScreen()
+            LoginScreen(onLogin = {
+                navHostController.popBackStack()
+                navHostController.navigate(NavigationRoute.Home.route)
+            }, onSignUp = {
+                navHostController.navigate(NavigationRoute.Signup.route)
+            })
+        }
+        composable(route = NavigationRoute.Signup.route) {
+            Text(text = "Esto es el signup")
+        }
+        composable(route = NavigationRoute.Home.route) {
+            Text(text = "Esta es la home")
         }
     }
 }

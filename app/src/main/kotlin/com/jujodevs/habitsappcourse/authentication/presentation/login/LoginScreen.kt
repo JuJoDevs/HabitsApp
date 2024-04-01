@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -26,9 +27,19 @@ import com.jujodevs.habitsappcourse.core.presentation.HabitTitle
 
 @Composable
 fun LoginScreen(
+    onLogin: () -> Unit,
+    onSignUp: () -> Unit,
     viewModel: LoginViewModel = hiltViewModel(),
 ) {
     val state = viewModel.state
+
+    LaunchedEffect(state.isLoggedIn, state.signup) {
+        when {
+            state.isLoggedIn -> onLogin()
+            state.signup -> onSignUp()
+        }
+    }
+
     Box(
         modifier = Modifier.fillMaxSize(),
     ) {
