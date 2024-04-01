@@ -36,11 +36,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun getStartDestination() : NavigationRoute {
-        return if (viewModel.hasSeenOnboarding) {
-            NavigationRoute.Login
-        } else {
-            NavigationRoute.Onboarding
+    private fun getStartDestination(): NavigationRoute {
+        return when {
+            viewModel.isLoggedIn ->
+                NavigationRoute.Home
+
+            viewModel.hasSeenOnboarding ->
+                NavigationRoute.Login
+
+            else ->
+                NavigationRoute.Onboarding
         }
     }
 }
