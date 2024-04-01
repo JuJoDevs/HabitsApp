@@ -17,9 +17,14 @@ fun NavigationHost(
         startDestination = startDestination.route
     ) {
         composable(route = NavigationRoute.Onboarding.route) {
-            OnboardingScreen(onFinish = {
-                println("Terminó el onboarding")
-            })
+            OnboardingScreen(
+                onFinish = {
+                    navHostController.popBackStack()
+                    navHostController.navigate(NavigationRoute.Login.route)
+                })
+        }
+        composable(route = NavigationRoute.Login.route) {
+            Text(text = "Login Screen!")
         }
     }
 }
