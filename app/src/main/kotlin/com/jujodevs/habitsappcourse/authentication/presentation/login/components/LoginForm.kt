@@ -109,7 +109,7 @@ fun LoginForm(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp),
-                isEnabled = true,
+                isEnabled = !state.isLoading,
                 onClick = {
                     onEvent(LoginEvent.Login)
                 })

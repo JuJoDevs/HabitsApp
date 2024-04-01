@@ -1,4 +1,4 @@
-package com.jujodevs.habitsappcourse.authentication.presentation.login
+package com.jujodevs.habitsappcourse.authentication.presentation.signup
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -12,29 +12,29 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class SignupViewModel @Inject constructor(
     private val loginUseCases: LoginUseCases,
 ) : ViewModel() {
-    var state by mutableStateOf(LoginState())
+    var state by mutableStateOf(SignupState())
         private set
 
-    fun onEvent(event: LoginEvent) {
+    fun onEvent(event: SignupEvent) {
         when (event) {
-            is LoginEvent.EmailChange ->
+            is SignupEvent.EmailChange ->
                 state = state.copy(email = event.email)
 
-            LoginEvent.Login ->
-                login()
-
-            is LoginEvent.PasswordChange ->
+            is SignupEvent.PasswordChange ->
                 state = state.copy(password = event.password)
 
-            LoginEvent.SignUp ->
-                state = state.copy(signup = true)
+            SignupEvent.SignIn ->
+                state = state.copy(signIn = true)
+
+            SignupEvent.SignUp ->
+                signUp()
         }
     }
 
-    private fun login() {
+    private fun signUp() {
         state = if (!loginUseCases.validateEmail(state.email)) {
             state.copy(emailError = "El email no es válido")
         } else {
@@ -52,11 +52,7 @@ class LoginViewModel @Inject constructor(
         isLoading(true)
 
         viewModelScope.launch {
-            loginUseCases.loginWithEmail(state.email, state.password).onSuccess {
-                state = state.copy(isLoggedIn = true)
-            }.onFailure {
-                state = state.copy(emailError = it.message)
-            }
+
             isLoading(false)
         }
     }
