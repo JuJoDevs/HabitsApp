@@ -34,7 +34,17 @@ fun NavigationHost(
             })
         }
         composable(route = NavigationRoute.Signup.route) {
-            SignupScreen()
+            SignupScreen(
+                onSignIn = {
+                    navHostController.navigate(NavigationRoute.Home.route) {
+                        popUpTo(navHostController.graph.id) {
+                            inclusive = true
+                        }
+                    }
+                }, onLogIn = {
+                    navHostController.popBackStack()
+                }
+            )
         }
         composable(route = NavigationRoute.Home.route) {
             Text(text = "Esta es la home")

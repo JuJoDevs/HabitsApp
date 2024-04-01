@@ -123,7 +123,7 @@ fun LoginForm(
             TextButton(onClick = { onEvent(LoginEvent.SignUp) }) {
                 Text(
                     text = buildAnnotatedString {
-                        append("Don't have an account?")
+                        append("Don't have an account? ")
                         withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
                             append("Sign up")
                         }

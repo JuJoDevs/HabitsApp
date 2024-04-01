@@ -36,7 +36,10 @@ fun LoginScreen(
     LaunchedEffect(state.isLoggedIn, state.signup) {
         when {
             state.isLoggedIn -> onLogin()
-            state.signup -> onSignUp()
+            state.signup -> {
+                onSignUp()
+                viewModel.onEvent(LoginEvent.SignupDone)
+            }
         }
     }
 

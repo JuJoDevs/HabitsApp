@@ -94,10 +94,10 @@ fun SignupForm(
             onClick = {
                 onEvent(SignupEvent.SignUp)
             })
-        TextButton(onClick = { onEvent(SignupEvent.SignIn) }) {
+        TextButton(onClick = { onEvent(SignupEvent.LogIn) }) {
             Text(
                 text = buildAnnotatedString {
-                    append("Already have an account?")
+                    append("Already have an account? ")
                     withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
                         append("Sign in")
                     }

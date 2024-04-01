@@ -31,6 +31,9 @@ class LoginViewModel @Inject constructor(
 
             LoginEvent.SignUp ->
                 state = state.copy(signup = true)
+
+            LoginEvent.SignupDone ->
+                state = state.copy(signup = false)
         }
     }
 
