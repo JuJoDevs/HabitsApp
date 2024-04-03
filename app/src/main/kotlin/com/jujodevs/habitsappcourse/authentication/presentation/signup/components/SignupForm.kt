@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -62,7 +63,7 @@ fun SignupForm(
             }),
             errorMessage = state.emailError,
             isEnabled = !state.isLoading,
-            backgroundColor = MaterialTheme.colorScheme.surface
+            backgroundColor = Color.White
         )
         HabitPasswordTextField(
             value = state.password,
@@ -82,7 +83,7 @@ fun SignupForm(
                 focusManager.clearFocus()
                 onEvent(SignupEvent.SignUp)
             }),
-            backgroundColor = MaterialTheme.colorScheme.surface
+            backgroundColor = Color.White
         )
         Spacer(modifier = Modifier.height(12.dp))
         HabitButton(
