@@ -55,9 +55,15 @@ fun NavigationHost(
                 onSettings = {
                     navHostController.navigate(NavigationRoute.Settings.route)
                 },
+                onEditHabit = {
+                    navHostController.navigate(NavigationRoute.Detail.createRoute(it))
+                }
             )
         }
-        composable(route = NavigationRoute.Detail.route) {
+        composable(
+            route = NavigationRoute.Detail.routeWithArguments,
+            arguments = NavigationRoute.Detail.arguments
+        ) {
             DetailScreen(
                 onBack = { navHostController.popBackStack() },
                 onSave = { navHostController.popBackStack() }

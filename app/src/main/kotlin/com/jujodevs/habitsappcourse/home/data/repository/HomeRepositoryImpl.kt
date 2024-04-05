@@ -21,7 +21,7 @@ class HomeRepositoryImpl @Inject constructor() : HomeRepository {
         Habit(
             id = it.toString(),
             name = "Habit $it",
-            frequency = listOf(DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY),
+            frequency = listOf(DayOfWeek.THURSDAY),
             completedDates = dates,
             reminder = LocalTime.now(),
             startDate = ZonedDateTime.now()
@@ -39,7 +39,15 @@ class HomeRepositoryImpl @Inject constructor() : HomeRepository {
 
     override suspend fun insertHabit(habit: Habit) {
         val index = mockHabits.indexOfFirst { it.id == habit.id }
-        mockHabits.removeAt(index)
-        mockHabits.add(index, habit)
+        if (index == -1) {
+            mockHabits.add(habit)
+        } else {
+            mockHabits.removeAt(index)
+            mockHabits.add(index, habit)
+        }
+    }
+
+    override suspend fun getHabitById(habitId: String): Habit {
+        return mockHabits.first { it.id == habitId }
     }
 }

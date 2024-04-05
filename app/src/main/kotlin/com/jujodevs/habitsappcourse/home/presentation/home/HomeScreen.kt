@@ -3,8 +3,10 @@ package com.jujodevs.habitsappcourse.home.presentation.home
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -37,6 +39,7 @@ import com.jujodevs.habitsappcourse.home.presentation.home.components.HomeQuote
 fun HomeScreen(
     onNewHabit: () -> Unit,
     onSettings: () -> Unit,
+    onEditHabit: (String) -> Unit,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val state = viewModel.state
@@ -106,8 +109,11 @@ fun HomeScreen(
                     habit = it,
                     selectedDate = state.selectedDate.toLocalDate(),
                     onCheckedChange = { viewModel.onEvent(HomeEvent.CompleteHabit(it)) },
-                    onHabitClick = { },
+                    onHabitClick = { onEditHabit(it.id) },
                 )
+            }
+            item {
+                Spacer(modifier = Modifier.height(64.dp))
             }
         }
     }
