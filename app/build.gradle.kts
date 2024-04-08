@@ -108,6 +108,10 @@ dependencies {
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.logging.interceptor)
 
+    // Moshi
+    implementation(libs.moshi)
+    ksp(libs.moshi.kotlin.codegen)
+
     // WorkManager
     implementation(libs.work.runtime.ktx)
     implementation(libs.hilt.work)

@@ -3,49 +3,37 @@ package com.jujodevs.habitsappcourse.home.data.local.typeconverter
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
-import java.lang.reflect.ParameterizedType
 import javax.inject.Inject
 
 @ProvidedTypeConverter
 class HomeTypeConverter @Inject constructor(
     private val moshi: Moshi,
 ) {
-    @TypeConverter
-    fun fromFrequency(days: List<Int>): String {
-        return MoshiAdapters.ListInt(moshi).adapter.toJson(days)
-    }
+    private val intListAdapter: JsonAdapter<IntList> = moshi.adapter(IntList::class.java)
+    private val longListAdapter: JsonAdapter<LongList> = moshi.adapter(LongList::class.java)
+
 
     @TypeConverter
-    fun toFrequency(value: String): List<Int> {
-        return MoshiAdapters.ListInt(moshi).adapter.fromJson(value) ?: emptyList()
-    }
+    fun fromFrequency(days: List<Int>): String =
+        intListAdapter.toJson(IntList(days))
 
     @TypeConverter
-    fun fromCompletedDates(days: List<Long>): String {
-        return MoshiAdapters.ListLong(moshi).adapter.toJson(days)
-    }
+    fun toFrequency(value: String): List<Int> =
+        intListAdapter.fromJson(value)?.list.orEmpty()
 
     @TypeConverter
-    fun toCompletedDates(value: String): List<Long> {
-        return MoshiAdapters.ListLong(moshi).adapter.fromJson(value) ?: emptyList()
-    }
+    fun fromCompletedDates(days: List<Long>): String =
+        longListAdapter.toJson(LongList(days))
 
-    sealed class MoshiAdapters<T>(
-        type: ParameterizedType,
-        moshi: Moshi,
-    ) {
-        data class ListInt(val moshi: Moshi) : MoshiAdapters<List<Int>>(
-            Types.newParameterizedType(List::class.java, Int::class.javaObjectType),
-            moshi
-        )
-
-        data class ListLong(val moshi: Moshi) : MoshiAdapters<List<Long>>(
-            Types.newParameterizedType(List::class.java, Long::class.javaObjectType),
-            moshi
-        )
-
-        val adapter: JsonAdapter<T> = moshi.adapter(type)
-    }
+    @TypeConverter
+    fun toCompletedDates(value: String): List<Long> =
+        longListAdapter.fromJson(value)?.list.orEmpty()
 }
+
+@JsonClass(generateAdapter = true)
+data class IntList(val list: List<Int>)
+
+@JsonClass(generateAdapter = true)
+data class LongList(val list: List<Long>)
