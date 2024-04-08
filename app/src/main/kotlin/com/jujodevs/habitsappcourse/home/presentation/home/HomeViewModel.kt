@@ -26,6 +26,7 @@ class HomeViewModel @Inject constructor(
         when (event) {
             is HomeEvent.ChangeDate -> {
                 state = state.copy(selectedDate = event.date)
+                getHabits()
             }
 
             is HomeEvent.CompleteHabit -> {
