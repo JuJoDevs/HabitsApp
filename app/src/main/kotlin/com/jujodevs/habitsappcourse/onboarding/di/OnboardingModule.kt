@@ -9,6 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -17,6 +18,7 @@ object OnboardingModule {
 
     @Provides
     @Singleton
+    @OnboardingPreferences
     fun provideSharedPreferences(
         @ApplicationContext context: Context,
     ): SharedPreferences =
@@ -25,6 +27,10 @@ object OnboardingModule {
     @Provides
     @Singleton
     fun provideOnboardingRepository(
-        sharedPreferences: SharedPreferences,
+        @OnboardingPreferences sharedPreferences: SharedPreferences,
     ): OnboardingRepository = ObboardingRepositoryImpl(sharedPreferences)
 }
+
+@Retention(AnnotationRetention.RUNTIME)
+@Qualifier
+annotation class OnboardingPreferences

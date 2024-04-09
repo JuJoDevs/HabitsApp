@@ -15,7 +15,9 @@ import javax.inject.Singleton
 object AuthenticationModule {
     @Provides
     @Singleton
-    fun provideAuthenticationRepository(): AuthenticationRepository = AuthenticationRepositoryImpl()
+    fun provideAuthenticationRepository(
+        authenticationRepositoryImpl: AuthenticationRepositoryImpl,
+    ): AuthenticationRepository = authenticationRepositoryImpl
 
     @Provides
     @Singleton
