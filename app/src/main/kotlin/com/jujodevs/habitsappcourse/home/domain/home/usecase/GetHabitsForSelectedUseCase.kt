@@ -12,8 +12,8 @@ class GetHabitsForSelectedUseCase @Inject constructor(
     private val repository: HomeRepository,
 ) {
     operator fun invoke(date: ZonedDateTime): Flow<List<Habit>> {
-        return repository.getAllHabitsForSelectedDate(date).distinctUntilChanged().map { habits ->
+        return repository.getAllHabitsForSelectedDate(date).map { habits ->
             habits.filter { it.frequency.contains(date.dayOfWeek) }
-        }
+        }.distinctUntilChanged()
     }
 }
