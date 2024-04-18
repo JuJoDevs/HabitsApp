@@ -15,11 +15,8 @@ interface HomeDao {
     @Upsert
     suspend fun insertHabit(habitEntity: HabitEntity)
 
-    @Upsert
-    suspend fun insertHabits(habits: List<HabitEntity>)
-
     @Query("SELECT * FROM HabitEntity WHERE id = :id")
-    fun getHabitById(id: String): HabitEntity
+    suspend fun getHabitById(id: String): HabitEntity?
 
     @Query("SELECT * FROM HabitEntity WHERE startDate <= :date ORDER BY id ASC")
     fun getAllHabitsForSelectedDate(date: Long): Flow<List<HabitEntity>>

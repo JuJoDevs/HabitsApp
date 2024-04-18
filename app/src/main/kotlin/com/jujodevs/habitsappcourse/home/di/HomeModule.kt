@@ -1,11 +1,15 @@
 package com.jujodevs.habitsappcourse.home.di
 
+import android.app.AlarmManager
+import android.app.NotificationManager
 import android.content.Context
 import androidx.room.Room
+import com.jujodevs.habitsappcourse.home.data.alarm.AlarmHandlerImpl
 import com.jujodevs.habitsappcourse.home.data.local.HomeDatabase
 import com.jujodevs.habitsappcourse.home.data.local.typeconverter.HomeTypeConverter
 import com.jujodevs.habitsappcourse.home.data.remote.HomeApi
 import com.jujodevs.habitsappcourse.home.data.repository.HomeRepositoryImpl
+import com.jujodevs.habitsappcourse.home.domain.alarm.AlarmHandler
 import com.jujodevs.habitsappcourse.home.domain.repository.HomeRepository
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -68,4 +72,18 @@ object HomeModule {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
             .create<HomeApi>()
+
+    @Singleton
+    @Provides
+    fun provideAlarmManager(@ApplicationContext context: Context): AlarmManager =
+        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+    @Singleton
+    @Provides
+    fun provideNotificationManager(@ApplicationContext context: Context): NotificationManager =
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+    @Singleton
+    @Provides
+    fun provideAlarmHandler(alarmHandlerImpl: AlarmHandlerImpl): AlarmHandler = alarmHandlerImpl
 }

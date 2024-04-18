@@ -11,6 +11,7 @@ import com.jujodevs.habitsappcourse.home.data.mapper.toDto
 import com.jujodevs.habitsappcourse.home.data.mapper.toEntity
 import com.jujodevs.habitsappcourse.home.data.remote.HomeApi
 import com.jujodevs.habitsappcourse.home.data.remote.util.resultOf
+import com.jujodevs.habitsappcourse.home.domain.alarm.AlarmHandler
 import com.jujodevs.habitsappcourse.home.domain.models.Habit
 import com.jujodevs.habitsappcourse.home.domain.repository.HomeRepository
 import kotlinx.coroutines.CoroutineDispatcher
@@ -27,6 +28,7 @@ import javax.inject.Inject
 class HomeRepositoryImpl @Inject constructor(
     private val dao: HomeDao,
     private val api: HomeApi,
+    private val alarmHandler: AlarmHandler,
     @FirebaseToken private val sharedPreferences: SharedPreferences,
     @IO private val dispatcher: CoroutineDispatcher,
 ) : HomeRepository {
@@ -51,6 +53,7 @@ class HomeRepositoryImpl @Inject constructor(
     }
 
     override suspend fun insertHabit(habit: Habit) {
+        handleAlarm(habit)
         dao.insertHabit(habit.toEntity())
         resultOf {
             val token = sharedPreferences.getString(FIREBASE_TOKEN, null)
@@ -59,10 +62,18 @@ class HomeRepositoryImpl @Inject constructor(
     }
 
     private suspend fun insertHabits(habits: List<Habit>) {
-        dao.insertHabits(habits.toEntity())
+        habits.forEach {
+            handleAlarm(it)
+            dao.insertHabit(it.toEntity())
+        }
+    }
+
+    private suspend fun handleAlarm(habit: Habit) {
+        dao.getHabitById(habit.id)?.toDomain()?.let { alarmHandler.cancel(it) }
+        alarmHandler.setRecurringAlarm(habit)
     }
 
     override suspend fun getHabitById(habitId: String): Habit {
-        return dao.getHabitById(habitId).toDomain()
+        return dao.getHabitById(habitId)?.toDomain() ?: throw Exception("Habit not found")
     }
 }
