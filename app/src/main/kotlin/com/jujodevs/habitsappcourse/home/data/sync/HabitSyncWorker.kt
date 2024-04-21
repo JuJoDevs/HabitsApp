@@ -17,7 +17,8 @@ import com.jujodevs.habitsappcourse.home.data.remote.util.resultOf
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.supervisorScope
 
 @HiltWorker
@@ -38,9 +39,9 @@ class HabitSyncWorker @AssistedInject constructor(
         return try {
             supervisorScope {
                 val jobs = items.map { item ->
-                    launch(dispatcher) { sync(item) }
+                    async(dispatcher) { sync(item) }
                 }
-                jobs.forEach { it.join() }
+                jobs.awaitAll()
             }
             Result.success()
         } catch (e: Exception) {
