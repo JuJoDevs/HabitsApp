@@ -54,4 +54,8 @@ class AuthenticationRepositoryImpl @Inject constructor(
             null
         }
     }
+
+    override suspend fun logout() {
+        Firebase.auth.signOut()
+    }
 }

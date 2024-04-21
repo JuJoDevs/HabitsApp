@@ -9,11 +9,13 @@ import com.jujodevs.habitsappcourse.authentication.presentation.signup.SignupScr
 import com.jujodevs.habitsappcourse.home.presentation.detail.DetailScreen
 import com.jujodevs.habitsappcourse.home.presentation.home.HomeScreen
 import com.jujodevs.habitsappcourse.onboarding.presentation.OnboardingScreen
+import com.jujodevs.habitsappcourse.settings.presentation.SettingsScreen
 
 @Composable
 fun NavigationHost(
     navHostController: NavHostController,
     startDestination: NavigationRoute,
+    logout: () -> Unit,
 ) {
     NavHost(
         navController = navHostController,
@@ -67,6 +69,19 @@ fun NavigationHost(
             DetailScreen(
                 onBack = { navHostController.popBackStack() },
                 onSave = { navHostController.popBackStack() }
+            )
+        }
+        composable(route = NavigationRoute.Settings.route) {
+            SettingsScreen(
+                onBack = { navHostController.popBackStack() },
+                onLogoout = {
+                    logout()
+                    navHostController.navigate(NavigationRoute.Login.route) {
+                        popUpTo(navHostController.graph.id) {
+                            inclusive = true
+                        }
+                    }
+                }
             )
         }
     }
