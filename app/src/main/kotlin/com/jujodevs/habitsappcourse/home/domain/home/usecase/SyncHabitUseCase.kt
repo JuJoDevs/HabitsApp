@@ -6,7 +6,7 @@ import javax.inject.Inject
 class SyncHabitUseCase @Inject constructor(
     private val repository: HomeRepository,
 ) {
-    suspend operator fun invoke() {
+    operator fun invoke() {
         repository.syncHabits()
     }
 }

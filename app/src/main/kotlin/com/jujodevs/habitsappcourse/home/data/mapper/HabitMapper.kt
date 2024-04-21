@@ -33,8 +33,6 @@ fun Habit.toEntity(): HabitEntity =
         startDate = startDate.toStartOfDateTimestamp()
     )
 
-fun List<Habit>.toEntity(): List<HabitEntity> = map { it.toEntity() }
-
 fun HabitResponse.toDomain(): List<Habit> =
     this.map { map ->
         val id = map.key
