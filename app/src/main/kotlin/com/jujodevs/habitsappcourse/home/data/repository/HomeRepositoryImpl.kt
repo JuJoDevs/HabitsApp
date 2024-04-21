@@ -1,6 +1,12 @@
 package com.jujodevs.habitsappcourse.home.data.repository
 
 import android.content.SharedPreferences
+import androidx.work.BackoffPolicy
+import androidx.work.Constraints
+import androidx.work.ExistingWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.jujodevs.habitsappcourse.core.FIREBASE_TOKEN
 import com.jujodevs.habitsappcourse.core.di.IO
 import com.jujodevs.habitsappcourse.core.di.SharedPreferencesModule.FirebaseToken
@@ -9,8 +15,10 @@ import com.jujodevs.habitsappcourse.home.data.local.HomeDao
 import com.jujodevs.habitsappcourse.home.data.mapper.toDomain
 import com.jujodevs.habitsappcourse.home.data.mapper.toDto
 import com.jujodevs.habitsappcourse.home.data.mapper.toEntity
+import com.jujodevs.habitsappcourse.home.data.mapper.toSyncEntity
 import com.jujodevs.habitsappcourse.home.data.remote.HomeApi
 import com.jujodevs.habitsappcourse.home.data.remote.util.resultOf
+import com.jujodevs.habitsappcourse.home.data.sync.HabitSyncWorker
 import com.jujodevs.habitsappcourse.home.domain.alarm.AlarmHandler
 import com.jujodevs.habitsappcourse.home.domain.models.Habit
 import com.jujodevs.habitsappcourse.home.domain.repository.HomeRepository
@@ -23,12 +31,14 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import java.time.ZonedDateTime
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
     private val dao: HomeDao,
     private val api: HomeApi,
     private val alarmHandler: AlarmHandler,
+    private val workManager: WorkManager,
     @FirebaseToken private val sharedPreferences: SharedPreferences,
     @IO private val dispatcher: CoroutineDispatcher,
 ) : HomeRepository {
@@ -58,6 +68,8 @@ class HomeRepositoryImpl @Inject constructor(
         resultOf {
             val token = sharedPreferences.getString(FIREBASE_TOKEN, null)
             api.insertHabit(token, habit.toDto())
+        }.onFailure {
+            dao.insertHabitSync(habit.toSyncEntity())
         }
     }
 
@@ -75,5 +87,13 @@ class HomeRepositoryImpl @Inject constructor(
 
     override suspend fun getHabitById(habitId: String): Habit {
         return dao.getHabitById(habitId)?.toDomain() ?: throw Exception("Habit not found")
+    }
+
+    override fun syncHabits() {
+        val worker = OneTimeWorkRequestBuilder<HabitSyncWorker>().setConstraints(
+            Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build()
+        ).setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 5, TimeUnit.MINUTES)
+            .build()
+        workManager.beginUniqueWork("sync_habit_id", ExistingWorkPolicy.REPLACE, worker).enqueue()
     }
 }

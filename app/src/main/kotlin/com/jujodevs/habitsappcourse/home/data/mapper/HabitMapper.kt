@@ -5,6 +5,7 @@ import com.jujodevs.habitsappcourse.home.data.extension.toTimeStamp
 import com.jujodevs.habitsappcourse.home.data.extension.toZoneDateTime
 import com.jujodevs.habitsappcourse.home.data.extension.toZonedDateTime
 import com.jujodevs.habitsappcourse.home.data.local.entity.HabitEntity
+import com.jujodevs.habitsappcourse.home.data.local.entity.HabitSyncEntity
 import com.jujodevs.habitsappcourse.home.data.remote.dto.HabitDto
 import com.jujodevs.habitsappcourse.home.data.remote.dto.HabitResponse
 import com.jujodevs.habitsappcourse.home.domain.models.Habit
@@ -60,3 +61,6 @@ fun Habit.toDto(): HabitResponse {
     )
     return mapOf(id to dto)
 }
+
+fun Habit.toSyncEntity(): HabitSyncEntity =
+    HabitSyncEntity(id = id)

@@ -3,7 +3,9 @@ package com.jujodevs.habitsappcourse.home.di
 import android.app.AlarmManager
 import android.app.NotificationManager
 import android.content.Context
+import android.net.ConnectivityManager
 import androidx.room.Room
+import androidx.work.WorkManager
 import com.jujodevs.habitsappcourse.home.data.alarm.AlarmHandlerImpl
 import com.jujodevs.habitsappcourse.home.data.local.HomeDatabase
 import com.jujodevs.habitsappcourse.home.data.local.typeconverter.HomeTypeConverter
@@ -86,4 +88,15 @@ object HomeModule {
     @Singleton
     @Provides
     fun provideAlarmHandler(alarmHandlerImpl: AlarmHandlerImpl): AlarmHandler = alarmHandlerImpl
+
+    @Singleton
+    @Provides
+    fun provideWorkManager(@ApplicationContext context: Context): WorkManager =
+        WorkManager.getInstance(context)
+
+    @Singleton
+    @Provides
+    fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
 }
