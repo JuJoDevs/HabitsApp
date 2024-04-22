@@ -5,28 +5,23 @@ import javax.inject.Inject
 class ValidatePasswordUseCase @Inject constructor() {
     operator fun invoke(password: String): PasswordResult {
         return when {
-            password.length < 8 -> PasswordResult.Invalid(
-                "La contraseña tiene que tener al menos 8 caracteres"
-            )
+            password.length < 8 -> PasswordResult.INVALID_LENGTH
 
-            password.none { it.isLowerCase() } -> PasswordResult.Invalid(
-                "La contraseña tiene que tener al menos una letra minúscula"
-            )
+            password.none { it.isLowerCase() } -> PasswordResult.INVALID_LOWERCASE
 
-            password.none { it.isUpperCase() } -> PasswordResult.Invalid(
-                "La contraseña tiene que tener al menos una letra mayúscula"
-            )
+            password.none { it.isUpperCase() } -> PasswordResult.INVALID_UPPERCASE
 
-            password.none { it.isDigit() } -> PasswordResult.Invalid(
-                "La contraseña tiene que tener al menos un número"
-            )
+            password.none { it.isDigit() } -> PasswordResult.INVALID_DIGITS
 
-            else -> PasswordResult.Valid
+            else -> PasswordResult.VALID
         }
     }
 }
 
-sealed class PasswordResult() {
-    data object Valid : PasswordResult()
-    data class Invalid(val errorMessage: String) : PasswordResult()
+enum class PasswordResult {
+    VALID,
+    INVALID_LOWERCASE,
+    INVALID_UPPERCASE,
+    INVALID_DIGITS,
+    INVALID_LENGTH,
 }

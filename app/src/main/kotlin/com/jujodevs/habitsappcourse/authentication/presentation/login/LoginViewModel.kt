@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jujodevs.habitsappcourse.authentication.domain.usecase.LoginUseCases
-import com.jujodevs.habitsappcourse.authentication.domain.usecase.PasswordResult
+import com.jujodevs.habitsappcourse.authentication.presentation.utils.PasswordErrorParser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -44,11 +44,7 @@ class LoginViewModel @Inject constructor(
             state.copy(emailError = null)
         }
         val passwordResult = loginUseCases.validatePassword(state.password)
-        state = if (passwordResult is PasswordResult.Invalid) {
-            state.copy(passwordError = passwordResult.errorMessage)
-        } else {
-            state.copy(passwordError = null)
-        }
+        state = state.copy(passwordError = PasswordErrorParser.parseError(passwordResult))
 
         if (state.emailError != null || state.passwordError != null) return
 
