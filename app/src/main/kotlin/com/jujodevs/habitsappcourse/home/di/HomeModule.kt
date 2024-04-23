@@ -1,11 +1,7 @@
 package com.jujodevs.habitsappcourse.home.di
 
-import android.app.AlarmManager
-import android.app.NotificationManager
 import android.content.Context
-import android.net.ConnectivityManager
 import androidx.room.Room
-import androidx.work.WorkManager
 import com.jujodevs.habitsappcourse.home.data.alarm.AlarmHandlerImpl
 import com.jujodevs.habitsappcourse.home.data.local.HomeDatabase
 import com.jujodevs.habitsappcourse.home.data.local.typeconverter.HomeTypeConverter
@@ -29,11 +25,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object HomeModule {
-
-    @Provides
-    @Singleton
-    fun provideHomeRepository(homeRepositoryImpl: HomeRepositoryImpl): HomeRepository =
-        homeRepositoryImpl
 
     @Provides
     @Singleton
@@ -77,26 +68,14 @@ object HomeModule {
 
     @Singleton
     @Provides
-    fun provideAlarmManager(@ApplicationContext context: Context): AlarmManager =
-        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-    @Singleton
-    @Provides
-    fun provideNotificationManager(@ApplicationContext context: Context): NotificationManager =
-        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-    @Singleton
-    @Provides
     fun provideAlarmHandler(alarmHandlerImpl: AlarmHandlerImpl): AlarmHandler = alarmHandlerImpl
+}
 
-    @Singleton
+@Module
+@InstallIn(SingletonComponent::class)
+object HomeRepositoryModule {
     @Provides
-    fun provideWorkManager(@ApplicationContext context: Context): WorkManager =
-        WorkManager.getInstance(context)
-
     @Singleton
-    @Provides
-    fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager =
-        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
+    fun provideHomeRepository(homeRepositoryImpl: HomeRepositoryImpl): HomeRepository =
+        homeRepositoryImpl
 }

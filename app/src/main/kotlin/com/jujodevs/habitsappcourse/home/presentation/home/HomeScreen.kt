@@ -27,6 +27,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,7 +62,10 @@ fun HomeScreen(
         FloatingActionButton(
             onClick = onNewHabit,
             containerColor = MaterialTheme.colorScheme.primary,
-            shape = CircleShape
+            shape = CircleShape,
+            modifier = Modifier.semantics {
+                contentDescription = "Add a new habit"
+            }
         ) {
             Icon(
                 imageVector = Icons.Default.Add,
