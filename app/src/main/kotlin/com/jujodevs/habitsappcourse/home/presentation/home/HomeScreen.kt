@@ -33,7 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.jujodevs.habitsappcourse.R
+import com.jujodevs.habitsappcourse.core.presentation.R
 import com.jujodevs.habitsappcourse.home.presentation.home.components.HomeAskPermission
 import com.jujodevs.habitsappcourse.home.presentation.home.components.HomeDateSelector
 import com.jujodevs.habitsappcourse.home.presentation.home.components.HomeHabit

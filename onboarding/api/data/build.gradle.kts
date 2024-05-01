@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.jujodevs.android.library)
+    alias(libs.plugins.jujodevs.feature.data)
 }
 
 android {
@@ -7,5 +7,5 @@ android {
 }
 
 dependencies {
-
+    implementation(projects.onboarding.api.domain)
 }

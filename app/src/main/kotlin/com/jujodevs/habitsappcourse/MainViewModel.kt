@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jujodevs.habitsappcourse.authentication.domain.usecase.GetUserIdUseCase
 import com.jujodevs.habitsappcourse.authentication.domain.usecase.LogoutUseCase
-import com.jujodevs.habitsappcourse.onboarding.domain.usecase.HasSeenOnboardingUseCase
+import com.jujodevs.habitsappcourse.onboarding.api.domain.usecase.HasSeenOnboardingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

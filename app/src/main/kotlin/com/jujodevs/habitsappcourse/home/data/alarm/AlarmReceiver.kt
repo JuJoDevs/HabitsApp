@@ -9,7 +9,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.jujodevs.habitsappcourse.MainActivity
-import com.jujodevs.habitsappcourse.R
+import com.jujodevs.habitsappcourse.core.presentation.R
 import com.jujodevs.habitsappcourse.home.data.extension.goAsync
 import com.jujodevs.habitsappcourse.home.domain.alarm.AlarmHandler
 import com.jujodevs.habitsappcourse.home.domain.models.Habit

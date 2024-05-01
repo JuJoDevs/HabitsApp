@@ -7,5 +7,7 @@ android {
 }
 
 dependencies {
-
+    implementation(projects.onboarding.api.domain)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicators)
 }

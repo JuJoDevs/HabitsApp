@@ -12,8 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.jujodevs.habitsappcourse.R
 import com.jujodevs.habitsappcourse.authentication.presentation.signup.components.SignupForm
+import com.jujodevs.habitsappcourse.core.presentation.R
 
 @Composable
 fun SignupScreen(

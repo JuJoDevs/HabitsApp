@@ -35,6 +35,7 @@ mockk = "1.13.5"
 jetbrainsKotlinJvm = "1.9.23"
 appcompat = "1.6.1"
 material = "1.11.0"
+inject = "1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -86,6 +87,7 @@ turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 work-testing = { group = "androidx.work", name = "work-testing", version.ref = "work" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+inject = { group = "javax.inject", name = "javax.inject", version.ref = "inject" }
 
 #Build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
@@ -107,6 +109,8 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jujodevs-library = { id = "jujodevs.library", version = "unspecified" }
 jujodevs-android-library = { id = "jujodevs.android.library", version = "unspecified" }
 jujodevs-android-library-compose = { id = "jujodevs.android.library.compose", version = "unspecified" }
+jujodevs-feature-data = { id = "jujodevs.feature.data", version = "unspecified" }
+jujodevs-feature-domain = { id = "jujodevs.feature.domain", version = "unspecified" }
 jujodevs-feature-presentation = { id = "jujodevs.feature.presentation", version = "unspecified" }
 jujodevs-application-flavors = { id = "jujodevs.application.flavors", version = "unspecified" }
 jujodevs-android-hilt = { id = "jujodevs.android.hilt", version = "unspecified" }

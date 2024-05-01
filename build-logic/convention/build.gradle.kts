@@ -53,6 +53,18 @@ gradlePlugin {
         }
     }
     plugins {
+        register("jujodevsFeatureData") {
+            id = "jujodevs.feature.data"
+            implementationClass = "JujodevsFeatureData"
+        }
+    }
+    plugins {
+        register("jujodevsFeatureDomain") {
+            id = "jujodevs.feature.domain"
+            implementationClass = "JujodevsFeatureDomain"
+        }
+    }
+    plugins {
         register("jujodevsFeaturePresentation") {
             id = "jujodevs.feature.presentation"
             implementationClass = "JujodevsFeaturePresentation"

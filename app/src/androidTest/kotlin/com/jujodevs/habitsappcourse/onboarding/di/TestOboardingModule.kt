@@ -1,7 +1,8 @@
 package com.jujodevs.habitsappcourse.onboarding.di
 
+import com.jujodevs.habitsappcourse.onboarding.api.data.di.OnboardingModule
+import com.jujodevs.habitsappcourse.onboarding.api.domain.repository.OnboardingRepository
 import com.jujodevs.habitsappcourse.onboarding.data.repository.FakeOnboardingRepository
-import com.jujodevs.habitsappcourse.onboarding.domain.repository.OnboardingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
