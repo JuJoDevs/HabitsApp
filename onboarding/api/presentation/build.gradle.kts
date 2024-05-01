@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.jujodevs.habitsappcourse.authentication.api.presentation"
+    namespace = "com.jujodevs.habitsappcourse.onboarding.api.presentation"
 }
 
 dependencies {

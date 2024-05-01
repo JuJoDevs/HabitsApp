@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.jujodevs.habitsappcourse.home.api.data"
+    namespace = "com.jujodevs.habitsappcourse.onboarding.api.data"
 }
 
 dependencies {

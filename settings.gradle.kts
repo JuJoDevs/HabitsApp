@@ -1,8 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":authentication:api:presentation")
-
-
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -17,7 +14,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -39,4 +35,8 @@ include(":home:api:domain")
 include(":home:api:presentation")
 include(":authentication:api:data")
 include(":authentication:api:domain")
-//include(":authentication:api:presentation")
+include(":authentication:api:presentation")
+include(":onboarding:api:data")
+include(":onboarding:api:domain")
+include(":onboarding:api:presentation")
+include(":settings:api:presentation")
