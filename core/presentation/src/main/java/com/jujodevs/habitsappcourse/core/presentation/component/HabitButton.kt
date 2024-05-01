@@ -1,4 +1,4 @@
-package com.jujodevs.core.presentation.component
+package com.jujodevs.habitsappcourse.core.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

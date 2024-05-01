@@ -9,7 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.jujodevs.core.presentation.theme.HabitsAppCourseTheme
+import com.jujodevs.habitsappcourse.core.presentation.theme.HabitsAppCourseTheme
 import com.jujodevs.habitsappcourse.navigation.NavigationHost
 import com.jujodevs.habitsappcourse.navigation.NavigationRoute
 import dagger.hilt.android.AndroidEntryPoint

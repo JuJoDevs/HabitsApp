@@ -28,7 +28,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.jujodevs.core.presentation.component.HabitTextField
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitTextField
 import com.jujodevs.habitsappcourse.home.presentation.detail.components.DetailFrequency
 import com.jujodevs.habitsappcourse.home.presentation.detail.components.DetailReminder
 import com.maxkeppeker.sheets.core.models.base.rememberSheetState

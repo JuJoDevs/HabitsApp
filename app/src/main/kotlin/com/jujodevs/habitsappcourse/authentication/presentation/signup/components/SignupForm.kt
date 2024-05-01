@@ -26,12 +26,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.jujodevs.core.presentation.component.HabitButton
-import com.jujodevs.core.presentation.component.HabitPasswordTextField
-import com.jujodevs.core.presentation.component.HabitTextField
-import com.jujodevs.core.presentation.component.HabitTitle
 import com.jujodevs.habitsappcourse.authentication.presentation.signup.SignupEvent
 import com.jujodevs.habitsappcourse.authentication.presentation.signup.SignupState
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitButton
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitPasswordTextField
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitTextField
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitTitle
 
 @Composable
 fun SignupForm(

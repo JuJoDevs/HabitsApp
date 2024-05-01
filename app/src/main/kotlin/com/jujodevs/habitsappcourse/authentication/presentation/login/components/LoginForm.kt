@@ -30,12 +30,12 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.jujodevs.core.presentation.component.HabitButton
-import com.jujodevs.core.presentation.component.HabitPasswordTextField
-import com.jujodevs.core.presentation.component.HabitTextField
-import com.jujodevs.core.presentation.theme.HabitsAppCourseTheme
 import com.jujodevs.habitsappcourse.authentication.presentation.login.LoginEvent
 import com.jujodevs.habitsappcourse.authentication.presentation.login.LoginState
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitButton
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitPasswordTextField
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitTextField
+import com.jujodevs.habitsappcourse.core.presentation.theme.HabitsAppCourseTheme
 
 @Composable
 fun LoginForm(

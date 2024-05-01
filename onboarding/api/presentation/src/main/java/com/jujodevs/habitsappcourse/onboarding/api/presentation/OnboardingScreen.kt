@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jujodevs.habitsappcourse.onboarding.api.presentation.components.OnboardingPager
+import com.jujodevs.habitsappcourse.core.presentation.R as RCore
 
 @Composable
 fun OnboardingScreen(
@@ -20,7 +21,7 @@ fun OnboardingScreen(
         OnboardingPagerInformation(
             title = "Welcome to\nMonumental Habits",
             subtitle = "We can help you to be a better version of youself",
-            image = R.drawable.onboarding1
+            image = RCore.drawable.onboarding1
         ),
         OnboardingPagerInformation(
             title = "Create new\nhabits easily",

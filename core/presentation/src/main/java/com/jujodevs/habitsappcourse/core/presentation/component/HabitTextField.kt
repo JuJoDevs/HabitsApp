@@ -1,4 +1,4 @@
-package com.jujodevs.core.presentation.component
+package com.jujodevs.habitsappcourse.core.presentation.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

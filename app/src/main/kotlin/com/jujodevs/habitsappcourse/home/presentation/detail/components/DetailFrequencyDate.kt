@@ -17,7 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.jujodevs.core.presentation.component.HabitCheckBox
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitCheckBox
 import java.time.DayOfWeek
 
 @Composable

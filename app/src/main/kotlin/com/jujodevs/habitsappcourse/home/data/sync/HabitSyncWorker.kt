@@ -5,9 +5,9 @@ import android.content.SharedPreferences
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.jujodevs.core.domain.FIREBASE_TOKEN
 import com.jujodevs.habitsappcourse.core.data.di.IO
 import com.jujodevs.habitsappcourse.core.data.di.SharedPreferencesModule.FirebaseToken
+import com.jujodevs.habitsappcourse.core.domain.FIREBASE_TOKEN
 import com.jujodevs.habitsappcourse.home.data.local.HomeDao
 import com.jujodevs.habitsappcourse.home.data.local.entity.HabitSyncEntity
 import com.jujodevs.habitsappcourse.home.data.mapper.toDomain

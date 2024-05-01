@@ -1,4 +1,4 @@
-package com.jujodevs.core.presentation.component
+package com.jujodevs.habitsappcourse.core.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.jujodevs.core.presentation.theme.HabitsAppCourseTheme
+import com.jujodevs.habitsappcourse.core.presentation.theme.HabitsAppCourseTheme
 
 @Composable
 fun HabitCheckBox(

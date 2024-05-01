@@ -2,7 +2,7 @@ package com.jujodevs.habitsappcourse.navigation
 
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.jujodevs.core.domain.HABIT_ID_KEY
+import com.jujodevs.habitsappcourse.core.domain.HABIT_ID_KEY
 
 sealed class NavigationRoute(val route: String) {
     data object Onboarding : NavigationRoute("onboarding")

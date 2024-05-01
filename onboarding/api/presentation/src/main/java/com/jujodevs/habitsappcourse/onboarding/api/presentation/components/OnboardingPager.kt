@@ -29,8 +29,8 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
-import com.jujodevs.core.presentation.component.HabitButton
-import com.jujodevs.core.presentation.component.HabitTitle
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitButton
+import com.jujodevs.habitsappcourse.core.presentation.component.HabitTitle
 import com.jujodevs.habitsappcourse.onboarding.api.presentation.OnboardingPagerInformation
 import kotlinx.coroutines.launch
 

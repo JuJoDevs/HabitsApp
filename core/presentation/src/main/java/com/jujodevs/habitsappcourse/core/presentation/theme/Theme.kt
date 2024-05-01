@@ -1,4 +1,4 @@
-package com.jujodevs.core.presentation.theme
+package com.jujodevs.habitsappcourse.core.presentation.theme
 
 import android.app.Activity
 import androidx.compose.material3.MaterialTheme
