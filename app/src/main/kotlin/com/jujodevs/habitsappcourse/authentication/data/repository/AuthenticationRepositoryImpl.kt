@@ -5,10 +5,10 @@ import android.net.ConnectivityManager
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jujodevs.core.domain.FIREBASE_TOKEN
 import com.jujodevs.habitsappcourse.authentication.domain.repository.AuthenticationRepository
-import com.jujodevs.habitsappcourse.core.FIREBASE_TOKEN
+import com.jujodevs.habitsappcourse.core.data.di.SharedPreferencesModule.FirebaseToken
 import com.jujodevs.habitsappcourse.core.data.network.isOnline
-import com.jujodevs.habitsappcourse.core.di.SharedPreferencesModule.FirebaseToken
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 

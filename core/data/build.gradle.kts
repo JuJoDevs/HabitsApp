@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.jujodevs.android.library)
+    alias(libs.plugins.jujodevs.android.hilt)
 }
 
 android {
@@ -7,5 +8,5 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.work.runtime.ktx)
 }

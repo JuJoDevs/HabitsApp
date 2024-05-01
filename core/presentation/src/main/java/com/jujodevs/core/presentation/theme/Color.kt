@@ -1,4 +1,4 @@
-package com.jujodevs.habitsappcourse.ui.theme
+package com.jujodevs.core.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

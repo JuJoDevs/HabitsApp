@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
-import com.jujodevs.habitsappcourse.core.presentation.HabitButton
+import com.jujodevs.core.presentation.component.HabitButton
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable

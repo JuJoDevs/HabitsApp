@@ -7,9 +7,9 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.jujodevs.habitsappcourse.core.FIREBASE_TOKEN
-import com.jujodevs.habitsappcourse.core.di.IO
-import com.jujodevs.habitsappcourse.core.di.SharedPreferencesModule.FirebaseToken
+import com.jujodevs.core.domain.FIREBASE_TOKEN
+import com.jujodevs.habitsappcourse.core.data.di.IO
+import com.jujodevs.habitsappcourse.core.data.di.SharedPreferencesModule.FirebaseToken
 import com.jujodevs.habitsappcourse.home.data.extension.toStartOfDateTimestamp
 import com.jujodevs.habitsappcourse.home.data.local.HomeDao
 import com.jujodevs.habitsappcourse.home.data.mapper.toDomain

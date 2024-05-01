@@ -1,6 +1,6 @@
 package com.jujodevs.habitsappcourse.home.domain.detail.usecase
 
-import com.jujodevs.habitsappcourse.core.di.IO
+import com.jujodevs.habitsappcourse.core.data.di.IO
 import com.jujodevs.habitsappcourse.home.domain.models.Habit
 import com.jujodevs.habitsappcourse.home.domain.repository.HomeRepository
 import kotlinx.coroutines.CoroutineDispatcher

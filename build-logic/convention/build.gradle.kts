@@ -64,4 +64,10 @@ gradlePlugin {
             implementationClass = "JujodevsApplicationFlavorsConventionPlugin"
         }
     }
+    plugins {
+        register("jujodevsAndroidHiltConventionPlugin") {
+            id = "jujodevs.android.hilt"
+            implementationClass = "JujodevsAndroidHiltConventionPlugin"
+        }
+    }
 }

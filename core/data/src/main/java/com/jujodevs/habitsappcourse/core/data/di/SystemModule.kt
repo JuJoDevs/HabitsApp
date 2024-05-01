@@ -1,4 +1,4 @@
-package com.jujodevs.habitsappcourse.core.di
+package com.jujodevs.habitsappcourse.core.data.di
 
 import android.app.AlarmManager
 import android.app.NotificationManager

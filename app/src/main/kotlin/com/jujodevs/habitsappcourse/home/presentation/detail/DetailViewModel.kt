@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jujodevs.habitsappcourse.core.HABIT_ID_KEY
+import com.jujodevs.core.domain.HABIT_ID_KEY
 import com.jujodevs.habitsappcourse.home.domain.detail.usecase.DetailUseCases
 import com.jujodevs.habitsappcourse.home.domain.models.Habit
 import dagger.hilt.android.lifecycle.HiltViewModel

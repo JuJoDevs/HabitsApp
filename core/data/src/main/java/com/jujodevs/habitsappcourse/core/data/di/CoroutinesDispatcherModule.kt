@@ -1,4 +1,4 @@
-package com.jujodevs.habitsappcourse.core.di
+package com.jujodevs.habitsappcourse.core.data.di
 
 import dagger.Module
 import dagger.Provides
