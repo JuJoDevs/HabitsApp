@@ -14,7 +14,6 @@ class JujodevsAndroidHiltConventionPlugin : Plugin<Project> {
             dependencies {
                 "implementation"(libs.findLibrary("dagger.hilt.android").get())
                 "ksp"(libs.findLibrary("dagger.hilt.compiler").get())
-                "implementation"(libs.findLibrary("hilt.navigation.compose").get())
                 "ksp"(libs.findLibrary("hilt.compiler").get())
             }
         }

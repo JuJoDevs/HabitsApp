@@ -15,6 +15,7 @@ class JujodevsFeaturePresentation : Plugin<Project> {
             dependencies {
                 add("implementation", project(":core:presentation"))
                 add("implementation", libs.findLibrary("androidx.core.ktx").get())
+                add("implementation", libs.findLibrary("hilt.navigation.compose").get())
             }
         }
     }
