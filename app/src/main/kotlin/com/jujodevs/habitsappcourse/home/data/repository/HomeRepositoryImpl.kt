@@ -7,7 +7,6 @@ import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.jujodevs.habitsappcourse.core.data.di.IO
 import com.jujodevs.habitsappcourse.core.data.di.SharedPreferencesModule.FirebaseToken
 import com.jujodevs.habitsappcourse.core.domain.FIREBASE_TOKEN
 import com.jujodevs.habitsappcourse.home.data.extension.toStartOfDateTimestamp
@@ -40,7 +39,7 @@ class HomeRepositoryImpl @Inject constructor(
     private val alarmHandler: AlarmHandler,
     private val workManager: WorkManager,
     @FirebaseToken private val sharedPreferences: SharedPreferences,
-    @IO private val dispatcher: CoroutineDispatcher,
+    @com.jujodevs.habitsappcourse.core.common.di.IO private val dispatcher: CoroutineDispatcher,
 ) : HomeRepository {
     @OptIn(ExperimentalCoroutinesApi::class)
     override fun getAllHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>> = flow {

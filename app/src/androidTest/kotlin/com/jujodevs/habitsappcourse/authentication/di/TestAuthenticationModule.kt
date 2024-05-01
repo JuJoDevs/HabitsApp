@@ -1,6 +1,7 @@
 package com.jujodevs.habitsappcourse.authentication.di
 
-import com.jujodevs.habitsappcourse.authentication.data.matcher.EmailMatcherImpl
+import com.jujodevs.habitsappcourse.authentication.api.data.matcher.EmailMatcherImpl
+import com.jujodevs.habitsappcourse.authentication.api.di.AuthenticationModule
 import com.jujodevs.habitsappcourse.authentication.data.repository.FakeAuthenticationRepository
 import com.jujodevs.habitsappcourse.authentication.domain.matcher.EmailMatcher
 import com.jujodevs.habitsappcourse.authentication.domain.repository.AuthenticationRepository

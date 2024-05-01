@@ -29,6 +29,7 @@ rootProject.name = "HabitsAppCourse"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
+include(":core:common")
 include(":core:domain")
 include(":core:data")
 include(":core:presentation")

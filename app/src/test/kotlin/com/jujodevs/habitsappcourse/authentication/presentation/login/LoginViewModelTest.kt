@@ -1,5 +1,8 @@
 package com.jujodevs.habitsappcourse.authentication.presentation.login
 
+import com.jujodevs.habitsappcourse.authentication.api.presentation.login.LoginEvent
+import com.jujodevs.habitsappcourse.authentication.api.presentation.login.LoginState
+import com.jujodevs.habitsappcourse.authentication.api.presentation.login.LoginViewModel
 import com.jujodevs.habitsappcourse.authentication.data.repository.FakeAuthenticationRepository
 import com.jujodevs.habitsappcourse.authentication.domain.matcher.EmailMatcher
 import com.jujodevs.habitsappcourse.authentication.domain.usecase.LoginUseCases

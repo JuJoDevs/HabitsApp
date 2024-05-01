@@ -5,7 +5,6 @@ import android.content.SharedPreferences
 import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.jujodevs.habitsappcourse.core.data.di.IO
 import com.jujodevs.habitsappcourse.core.data.di.SharedPreferencesModule.FirebaseToken
 import com.jujodevs.habitsappcourse.core.domain.FIREBASE_TOKEN
 import com.jujodevs.habitsappcourse.home.data.local.HomeDao
@@ -28,7 +27,7 @@ class HabitSyncWorker @AssistedInject constructor(
     private val api: HomeApi,
     private val dao: HomeDao,
     @FirebaseToken private val sharedPreferences: SharedPreferences,
-    @IO private val dispatcher: CoroutineDispatcher,
+    @com.jujodevs.habitsappcourse.core.common.di.IO private val dispatcher: CoroutineDispatcher,
 ) : CoroutineWorker(context, workerParameters) {
     override suspend fun doWork(): Result {
         val items = dao.getAllHabitsSync()
