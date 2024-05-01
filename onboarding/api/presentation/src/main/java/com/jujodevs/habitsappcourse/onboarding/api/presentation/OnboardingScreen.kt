@@ -3,7 +3,6 @@ package com.jujodevs.habitsappcourse.onboarding.api.presentation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.jujodevs.habitsappcourse.core.presentation.R
 import com.jujodevs.habitsappcourse.onboarding.api.presentation.components.OnboardingPager
 
 @Composable
