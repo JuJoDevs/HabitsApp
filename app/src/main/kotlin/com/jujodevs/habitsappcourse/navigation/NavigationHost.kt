@@ -7,8 +7,8 @@ import androidx.navigation.compose.composable
 import com.jujodevs.habitappcourse.api.presentation.SettingsScreen
 import com.jujodevs.habitsappcourse.authentication.api.presentation.login.LoginScreen
 import com.jujodevs.habitsappcourse.authentication.api.presentation.signup.SignupScreen
-import com.jujodevs.habitsappcourse.home.presentation.detail.DetailScreen
-import com.jujodevs.habitsappcourse.home.presentation.home.HomeScreen
+import com.jujodevs.habitsappcourse.home.api.presentation.detail.DetailScreen
+import com.jujodevs.habitsappcourse.home.api.presentation.home.HomeScreen
 import com.jujodevs.habitsappcourse.onboarding.api.presentation.OnboardingScreen
 
 @Composable

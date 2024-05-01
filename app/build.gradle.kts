@@ -22,11 +22,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-
-        ksp {
-            arg("room.schemaLocation", "$projectDir/schemas")
-            arg("room.incremental", "true")
-        }
     }
 
     buildTypes {
@@ -95,42 +90,8 @@ dependencies {
     // Desugaring
     coreLibraryDesugaring(libs.desugar)
 
-    // Time picker
-    implementation(libs.sheets.compose.dialogs.core)
-    implementation(libs.sheets.compose.dialogs.clock)
-
     // Compose Navigation
     implementation(libs.compose.navigation)
-
-    // Firebase
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.auth)
-    implementation(libs.play.services.auth)
-
-    // Coil
-    implementation(libs.coil.compose)
-
-    // Pager
-    implementation(libs.accompanist.pager)
-    implementation(libs.accompanist.pager.indicators)
-
-    // Permissions
-    implementation(libs.accompanist.permissions)
-
-    // Room
-    implementation(libs.room.ktx)
-    ksp(libs.room.compiler)
-    implementation(libs.room.runtime)
-
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
-    implementation(libs.logging.interceptor)
-
-    // Moshi
-    implementation(libs.moshi)
-    ksp(libs.moshi.kotlin.codegen)
 
     // WorkManager
     implementation(libs.work.runtime.ktx)

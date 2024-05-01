@@ -105,6 +105,7 @@ dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger-hil
 google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
 jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+room = { id = "androidx.room", version.ref = "room" }
 
 #This project
 jujodevs-library = { id = "jujodevs.library", version = "unspecified" }
@@ -115,3 +116,6 @@ jujodevs-feature-domain = { id = "jujodevs.feature.domain", version = "unspecifi
 jujodevs-feature-presentation = { id = "jujodevs.feature.presentation", version = "unspecified" }
 jujodevs-application-flavors = { id = "jujodevs.application.flavors", version = "unspecified" }
 jujodevs-android-hilt = { id = "jujodevs.android.hilt", version = "unspecified" }
+jujodevs-android-room = { id = "jujodevs.android.room", version = "unspecified" }
+jujodevs-android-moshi = { id = "jujodevs.android.moshi", version = "unspecified" }
+jujodevs-android-retrofit = { id = "jujodevs.android.retrofit", version = "unspecified" }

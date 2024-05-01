@@ -1,7 +1,8 @@
 package com.jujodevs.habitsappcourse.home.di
 
+import com.jujodevs.habitsappcourse.home.api.data.di.HomeRepositoryModule
+import com.jujodevs.habitsappcourse.home.api.domain.repository.HomeRepository
 import com.jujodevs.habitsappcourse.home.data.repository.FakeHomeRepository
-import com.jujodevs.habitsappcourse.home.domain.repository.HomeRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent

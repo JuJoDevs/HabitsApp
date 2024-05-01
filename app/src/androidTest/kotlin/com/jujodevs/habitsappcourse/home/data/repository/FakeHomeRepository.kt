@@ -1,7 +1,7 @@
 package com.jujodevs.habitsappcourse.home.data.repository
 
-import com.jujodevs.habitsappcourse.home.domain.models.Habit
-import com.jujodevs.habitsappcourse.home.domain.repository.HomeRepository
+import com.jujodevs.habitsappcourse.home.api.domain.models.Habit
+import com.jujodevs.habitsappcourse.home.api.domain.repository.HomeRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import java.time.ZonedDateTime
 

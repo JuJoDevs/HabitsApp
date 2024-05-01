@@ -6,7 +6,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jujodevs.habitsappcourse.authentication.domain.repository.AuthenticationRepository
-import com.jujodevs.habitsappcourse.core.common.network.isOnline
+import com.jujodevs.habitsappcourse.core.common_android.network.isOnline
 import com.jujodevs.habitsappcourse.core.data.di.SharedPreferencesModule.FirebaseToken
 import com.jujodevs.habitsappcourse.core.domain.FIREBASE_TOKEN
 import kotlinx.coroutines.tasks.await

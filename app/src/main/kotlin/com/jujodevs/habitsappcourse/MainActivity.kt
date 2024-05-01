@@ -1,5 +1,7 @@
 package com.jujodevs.habitsappcourse
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,12 +12,14 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.jujodevs.habitsappcourse.core.presentation.theme.HabitsAppCourseTheme
+import com.jujodevs.habitsappcourse.home.api.data.alarm.NotificationNavigationHandler
 import com.jujodevs.habitsappcourse.navigation.NavigationHost
 import com.jujodevs.habitsappcourse.navigation.NavigationRoute
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity @Inject constructor() : ComponentActivity(), NotificationNavigationHandler {
     private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +51,12 @@ class MainActivity : ComponentActivity() {
 
             else ->
                 NavigationRoute.Onboarding
+        }
+    }
+
+    override fun createMainPendingIntent(context: Context): Intent {
+        return Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
     }
 }

@@ -11,6 +11,7 @@ class JujodevsFeatureDomain : Plugin<Project> {
             }
 
             dependencies {
+                add("implementation", project(":core:common"))
                 add("implementation", libs.findLibrary("inject").get())
             }
         }

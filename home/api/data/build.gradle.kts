@@ -1,5 +1,8 @@
 plugins {
-    alias(libs.plugins.jujodevs.android.library)
+    alias(libs.plugins.jujodevs.feature.data)
+    alias(libs.plugins.jujodevs.android.room)
+    alias(libs.plugins.jujodevs.android.moshi)
+    alias(libs.plugins.jujodevs.android.retrofit)
 }
 
 android {
@@ -7,5 +10,10 @@ android {
 }
 
 dependencies {
-
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+    implementation(projects.home.api.domain)
+    // WorkManager
+    implementation(libs.work.runtime.ktx)
+    implementation(libs.hilt.work)
 }

@@ -82,4 +82,22 @@ gradlePlugin {
             implementationClass = "JujodevsAndroidHiltConventionPlugin"
         }
     }
+    plugins {
+        register("jujodevsandroidRoomConventionPlugin") {
+            id = "jujodevs.android.room"
+            implementationClass = "JujodevsAndroidRoomConventionPlugin"
+        }
+    }
+    plugins {
+        register("jujodevsAndroidMoshiConventionPlugin") {
+            id = "jujodevs.android.moshi"
+            implementationClass = "JujodevsAndroidMoshiConventionPlugin"
+        }
+    }
+    plugins {
+        register("jujodevsAndroidRetrofitConventionPlugin") {
+            id = "jujodevs.android.retrofit"
+            implementationClass = "JujodevsAndroidRetrofitConventionPlugin"
+        }
+    }
 }

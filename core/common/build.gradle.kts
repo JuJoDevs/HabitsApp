@@ -1,12 +1,7 @@
 plugins {
-    alias(libs.plugins.jujodevs.android.library)
-    alias(libs.plugins.jujodevs.android.hilt)
-}
-
-android {
-    namespace = "com.jujodevs.habitsappcourse.core.common"
+    alias(libs.plugins.jujodevs.library)
 }
 
 dependencies {
-
+    implementation(libs.inject)
 }

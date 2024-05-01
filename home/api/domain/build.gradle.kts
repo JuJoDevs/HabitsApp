@@ -1,3 +1,3 @@
 plugins {
-    alias(libs.plugins.jujodevs.library)
+    alias(libs.plugins.jujodevs.feature.domain)
 }

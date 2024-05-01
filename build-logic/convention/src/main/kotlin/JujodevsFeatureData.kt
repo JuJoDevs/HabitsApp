@@ -13,6 +13,7 @@ class JujodevsFeatureData : Plugin<Project> {
 
             dependencies {
                 add("implementation", project(":core:common"))
+                add("implementation", project(":core:common-android"))
                 add("implementation", libs.findLibrary("inject").get())
             }
         }
