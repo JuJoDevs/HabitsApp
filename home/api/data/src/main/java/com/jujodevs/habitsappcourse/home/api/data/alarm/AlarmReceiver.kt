@@ -54,7 +54,7 @@ class AlarmReceiver : BroadcastReceiver() {
     private fun showNotification(context: Context, habit: Habit) {
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setContentTitle(habit.name)
-            .setSmallIcon(R.drawable.notification_icon)
+            .setSmallIcon(R.drawable.home_api_data_notification_icon)
             .setContentIntent(createMainPendingIntent(context))
             .setAutoCancel(true)
             .build()
