@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-include(":core:common-android")
-
 
 gradle.startParameter.excludedTaskNames.addAll(listOf(":build-logic:convention:testClasses"))
 
@@ -32,17 +30,19 @@ rootProject.name = "HabitsAppCourse"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(":app")
+include(":navigation")
 include(":core:common")
+include(":core:common-android")
 include(":core:domain")
 include(":core:data")
 include(":core:presentation")
-include(":home:api:data")
-include(":home:api:domain")
-include(":home:api:presentation")
-include(":authentication:api:data")
-include(":authentication:api:domain")
-include(":authentication:api:presentation")
-include(":onboarding:api:data")
-include(":onboarding:api:domain")
-include(":onboarding:api:presentation")
-include(":settings:api:presentation")
+include(":home:impl:data")
+include(":home:impl:domain")
+include(":home:impl:presentation")
+include(":authentication:impl:data")
+include(":authentication:impl:domain")
+include(":authentication:impl:presentation")
+include(":onboarding:impl:data")
+include(":onboarding:impl:domain")
+include(":onboarding:impl:presentation")
+include(":settings:impl:presentation")

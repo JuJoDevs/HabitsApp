@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.jujodevs.habitappcourse.api.presentation.SettingsScreen
+import com.jujodevs.habitappcourse.impl.presentation.SettingsScreen
 import com.jujodevs.habitsappcourse.authentication.api.presentation.login.LoginScreen
 import com.jujodevs.habitsappcourse.authentication.api.presentation.signup.SignupScreen
 import com.jujodevs.habitsappcourse.home.api.presentation.detail.DetailScreen
